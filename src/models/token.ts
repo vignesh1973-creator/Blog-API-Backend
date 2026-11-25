@@ -1,0 +1,26 @@
+
+
+import { Schema,model,Types } from "mongoose";
+
+
+
+interface IToken {
+    refreshToken: string,
+    userId: Types.ObjectId
+};
+
+
+const tokenSchema = new Schema<IToken>({
+    refreshToken:{
+        type:'string',
+        required:true
+    },
+    userId:{
+        type:Schema.Types.ObjectId,
+        required:true
+    }
+});
+
+
+
+export default model<IToken>('Token',tokenSchema)
